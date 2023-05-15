@@ -25,7 +25,10 @@ RUN docker-php-ext-install xml
 RUN docker-php-ext-install mbstring
 RUN docker-php-ext-install json
 
+COPY --from=composer:2.2 /usr/bin/composer /usr/bin/composer
 COPY ./conf/custom.ini /usr/local/etc/php/conf.d/custom.ini
 
-# PHP Composer
-COPY --from=composer:2.2 /usr/bin/composer /usr/bin/composer
+COPY ./composer-installation.sh /usr/local/bin/composer-installation.sh
+RUN chmod +x /usr/local/bin/composer-installation.sh
+
+ENTRYPOINT ["/usr/local/bin/composer-installation.sh"]

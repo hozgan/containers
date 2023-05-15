@@ -24,3 +24,8 @@ RUN docker-php-ext-install mbstring
 RUN docker-php-ext-install json
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+COPY ./composer-installation.sh /usr/local/bin/composer-installation.sh
+RUN chmod +x /usr/local/bin/composer-installation.sh
+
+ENTRYPOINT ["/usr/local/bin/composer-installation.sh"]
