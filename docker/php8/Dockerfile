@@ -24,6 +24,10 @@ RUN docker-php-ext-install gd
 RUN docker-php-ext-install xml
 RUN docker-php-ext-install mbstring
 
+RUN git config --global --add safe.directory /opt
+RUN git config --global --add safe.directory /opt/vendor
+RUN git config --global --add safe.directory /opt/vendor/way/generators
+
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 COPY ./composer-installation.sh /usr/local/bin/composer-installation.sh

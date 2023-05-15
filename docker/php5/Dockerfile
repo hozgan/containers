@@ -25,6 +25,10 @@ RUN docker-php-ext-install xml
 RUN docker-php-ext-install mbstring
 RUN docker-php-ext-install json
 
+RUN git config --global --add safe.directory /opt
+RUN git config --global --add safe.directory /opt/vendor
+RUN git config --global --add safe.directory /opt/vendor/way/generators
+
 COPY --from=composer:2.2 /usr/bin/composer /usr/bin/composer
 COPY ./conf/custom.ini /usr/local/etc/php/conf.d/custom.ini
 
