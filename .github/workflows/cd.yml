@@ -62,6 +62,16 @@ jobs:
           tags: ghcr.io/${{ github.repository }}:php72
 
       -
+        name: Build and push for PHP7.3
+        uses: docker/build-push-action@v4
+        with:
+          context: ./docker/php73/
+          file: ./docker/php72/Dockerfile
+          # platforms: linux/amd64,linux/arm64
+          push: true
+          tags: ghcr.io/${{ github.repository }}:php73
+
+      -
         name: Build and push for PHP8
         uses: docker/build-push-action@v4
         with:
