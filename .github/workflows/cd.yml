@@ -31,15 +31,6 @@ jobs:
           # platforms: linux/amd64,linux/arm64
           push: true
           tags: ghcr.io/${{ github.repository }}:php56, ghcr.io/${{ github.repository }}:php5
-      -
-        name: Build and push for PHP7
-        uses: docker/build-push-action@v4
-        with:
-          context: ./docker/php7/
-          file: ./docker/php7/Dockerfile
-          # platforms: linux/amd64,linux/arm64
-          push: true
-          tags: ghcr.io/${{ github.repository }}:php74, ghcr.io/${{ github.repository }}:php7
 
       -
         name: Build and push for PHP7.1
@@ -70,6 +61,16 @@ jobs:
           # platforms: linux/amd64,linux/arm64
           push: true
           tags: ghcr.io/${{ github.repository }}:php73
+
+      -
+        name: Build and push for PHP7.4
+        uses: docker/build-push-action@v4
+        with:
+          context: ./docker/php74/
+          file: ./docker/php74/Dockerfile
+          # platforms: linux/amd64,linux/arm64
+          push: true
+          tags: ghcr.io/${{ github.repository }}:php74, ghcr.io/${{ github.repository }}:php7
 
       -
         name: Build and push for PHP8
