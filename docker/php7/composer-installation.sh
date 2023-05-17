@@ -7,7 +7,7 @@ case $1 in
         while [[ $# -gt 0 ]]; do
             case $1 in
                 --for)
-                    curl -sLS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer --version=$2 1>2 /dev/null
+                    curl -sLS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer --version=$2 1> /dev/null
                     shift 1
                     shift 1
                     ;;
