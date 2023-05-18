@@ -23,54 +23,54 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       -
-        name: Build and push for PHP5
+        name: Build and push for PHP 5.6
         uses: docker/build-push-action@v4
         with:
           context: ./docker/php5/
           file: ./docker/php5/Dockerfile
           # platforms: linux/amd64,linux/arm64
           push: true
-          tags: ghcr.io/${{ github.repository }}:php56, ghcr.io/${{ github.repository }}:php5
+          tags: ghcr.io/${{ github.repository }}-php56:latest, ghcr.io/${{ github.repository }}-php5:latest
 
       -
-        name: Build and push for PHP7.1
+        name: Build and push for PHP 7.1
         uses: docker/build-push-action@v4
         with:
           context: ./docker/php71/
           file: ./docker/php71/Dockerfile
           # platforms: linux/amd64,linux/arm64
           push: true
-          tags: ghcr.io/${{ github.repository }}:php71
+          tags: ghcr.io/${{ github.repository }}-php71:latest
 
       -
-        name: Build and push for PHP7.2
+        name: Build and push for PHP 7.2
         uses: docker/build-push-action@v4
         with:
           context: ./docker/php72/
           file: ./docker/php72/Dockerfile
           # platforms: linux/amd64,linux/arm64
           push: true
-          tags: ghcr.io/${{ github.repository }}:php72
+          tags: ghcr.io/${{ github.repository }}-php72:latest
 
       -
-        name: Build and push for PHP7.3
+        name: Build and push for PHP 7.3
         uses: docker/build-push-action@v4
         with:
           context: ./docker/php73/
           file: ./docker/php72/Dockerfile
           # platforms: linux/amd64,linux/arm64
           push: true
-          tags: ghcr.io/${{ github.repository }}:php73
+          tags: ghcr.io/${{ github.repository }}-php73:latest
 
       -
-        name: Build and push for PHP7.4
+        name: Build and push for PHP 7.4
         uses: docker/build-push-action@v4
         with:
           context: ./docker/php74/
           file: ./docker/php74/Dockerfile
           # platforms: linux/amd64,linux/arm64
           push: true
-          tags: ghcr.io/${{ github.repository }}:php74, ghcr.io/${{ github.repository }}:php7
+          tags: ghcr.io/${{ github.repository }}-php74:latest, ghcr.io/${{ github.repository }}-php7:latest
 
       -
         name: Build and push for PHP8
@@ -80,4 +80,4 @@ jobs:
           file: ./docker/php8/Dockerfile
           # platforms: linux/amd64,linux/arm64
           push: true
-          tags: ghcr.io/${{ github.repository }}:php82, ghcr.io/${{ github.repository }}:php8
+          tags: ghcr.io/${{ github.repository }}-php82:latest, ghcr.io/${{ github.repository }}-php8:latest
